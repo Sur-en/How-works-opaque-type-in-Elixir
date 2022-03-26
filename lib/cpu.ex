@@ -1,6 +1,6 @@
 defmodule CPUEntity do
   @type t() :: %__MODULE__{
-          id: non_neg_integer(),
+          id: ID.t(),
           cpu_specifications: map(),
           hash: String.t()
         }
@@ -11,7 +11,7 @@ defmodule CPUEntity do
     :hash
   ]
 
-  @spec new(non_neg_integer(), map(), String.t()) :: t()
+  @spec new(ID.t(), map(), String.t()) :: t()
   def new(id, cpu_specifications, hash) do
     %__MODULE__{
       id: id,
@@ -27,4 +27,8 @@ defmodule CPUEntity do
 
     new(id, cpu_specifications, hash)
   end
+end
+
+defmodule ID do
+  @type t() :: non_neg_integer()
 end
