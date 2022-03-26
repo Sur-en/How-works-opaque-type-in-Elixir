@@ -2,8 +2,7 @@ defmodule CPUEntity do
   @type t() :: %__MODULE__{
           id: ID.t(),
           cpu_specifications: CPUSpecificationsVO.t(),
-          # Note, simple String.t() will also work
-          hash: String.t()
+          hash: HashVO.t()
         }
 
   defstruct [
@@ -37,6 +36,7 @@ end
 defmodule HashVO do
   @opaque t() :: String.t()
 
+  @spec new(String.t()) :: t()
   def new(hash) do
     # your code
     hash
@@ -51,6 +51,7 @@ defmodule CPUSpecificationsVO do
 
   defstruct [:version, :core_count]
 
+  @spec new(String.t(), non_neg_integer()) :: t()
   def new(version, core_count) do
     %__MODULE__{version: version, core_count: core_count}
   end
