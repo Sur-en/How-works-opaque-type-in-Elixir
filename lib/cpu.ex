@@ -1,0 +1,2 @@
+defmodule CPUEntity do
+end
